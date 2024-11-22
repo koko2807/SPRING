@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>게시글 수정</title>
+</head>
+<body>
+  <h1>게시글 수정</h1>
+
+  <form action="/board/update" method="post" id="form">
+    <table border="1" th:object="${board}">
+      <tr>
+        <td>제목</td>
+        <td width="300">
+          <!-- <input type="text" id="itile" name="title" th:field="*{board.title}"> -->
+          <!-- <input type="text" id="itile" name="title" th:field="*{title}"> -->
+           <!-- ★ th:field="*{변수명}" -> id="변수명" name="변수명" 까지 자동 랜더링-->
+          <input type="text" th:field="*{title}">
+        </td>
+      </tr>
+      <tr>
+        <td>작성자</td>
+        <td>
+          <!-- <input type="text" name="writer" th:field="*{board.writer}"> -->
+          <input type="text" id="writer" name="writer" th:field="*{writer}">
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <!-- <textarea name="content" th:text="${board.content}" rows="5" cols="50"></textarea> -->
+          <textarea name="content" id="content" th:field="*{content}" rows="5" cols="50"></textarea>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <input type="submit" value="수정">
+          <button type="button" onclick="update()">수정</button>
+          <button type="button" onclick="remove()">삭제</button>
+        </td>
+      </tr>
+    </table>
+  </form>
+
+  <script>
+
+      // 모델 객체의 게시글 번호 가져오기
+      // Model 의 객체를 JavaScript 로 가져오는 방법
+      // ★ "[[${변수}]]"
+      let no = "[[${board.no}]]"
+      alert(no)
+
+      // 수정 요청
+      function update() {
+        // ★ id 로 선택
+        // let title = document.getElementById("title").value
+        // let writer = document.getElementById("writer").value
+        // let content = document.getElementById("content").value
+
+        // ★ form 요소를 가져와서, name 속성값으로 input 태그를 접근 가능
+        let form = document.getElementById("form")
+          let title = form.title.value
+          let writer = form.writer.value
+          let content = form.content.value
+
+          let data = {
+            "no"    : no,
+            "title" : title,
+            "writer" : writer,
+            "contnet" : content
+          }
+
+          let request = new XMLHttpRequest()
+
+          request.onreadystatechange = function() {
+            // 요청준비상태 DONE(완료) and 응답상태 코드 200(성공)
+            if( request.readyState == XMLHttpRequest.DONE && request.status == 200 ) {
+                let response = request.responseText // 응답 메시지
+                alert(response)
+                alert("수정 실패")
+                if( response == "SUCCESS" ) {
+                  location.href = "/board/list"
+                } else {
+                    alert("수정 실패")
+                }
+            }
+            if( request.readyState == XMLHttpRequest.DONE && request.status == 500 ) {
+              let response = request.responseText // 응답 메시지
+              alert(response)
+              alert("수정 실패")
+          }
+        }
+          let url = "/board"
+          request.open("PUT", url, true)          // PUT 방식으로 설정
+          request.setRequestHeader("Content-Type", "application/json")  // 컨텐츠 타입 json 지정
+          request.send( JSON.stringify(data) )    // 객체 -> 문자열로 변환 하여 요청 전송
+      }
+          
+          // 삭제 요청
+      function remove() {
+        // method : DELETE
+        // url    : /board?no=★
+
+        let check = confirm("정말로 삭제하시겠습니까?")
+        if( !check ) return
+
+        let request = new XMLHttpRequest()
+        
+        request.onreadystatechange = function() {
+          // 요청준비상태 DONE(완료) and 응답상태 코드 200(성공)
+            if( request.readyState == XMLHttpRequest.DONE && request.status == 200 ) {
+                let response = request.responseText // 응답 메시지
+                alert(response)
+                alert("삭제 성공")
+                location.href = "/board/list"
+              } else {
+                alert("삭제 실패")
+              }
+            }
+            if( request.readyState == XMLHttpRequest.DONE && request.status == 500 ) {
+              let response = request.responseText // 응답 메시지
+              alert(response)
+              alert("삭제 실패")
+            }
+            let url = "/board?no=" + no
+            request.open("DELETE", url, true)
+            request.send()
+          }
+  </script>
+  </body>
+  </html>

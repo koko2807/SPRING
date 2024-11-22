@@ -1,0 +1,18 @@
+package com.aloha.spring.service;
+
+import com.aloha.spring.dao.BoardDAO;
+
+public class BoardServiceImpl implements BoardService {
+
+	@Override
+	public void test() {
+		
+	}
+
+	@Override
+	public void setDAO(BoardDAO boardDAO) {
+	}
+
+	
+	
+}

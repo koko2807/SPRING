@@ -1,0 +1,15 @@
+package com.aloha.spring.service;
+
+import com.aloha.spring.dao.BoardDAO;
+
+public class BoardServiceImpl implements BoardService {
+
+	// BoardServiceImpl --> BoardDAO 의존
+	private BoardDAO boardDAO = new BoardDAO();
+	
+	@Override
+	public List<Board> list() {
+		
+		return null;
+	}
+}

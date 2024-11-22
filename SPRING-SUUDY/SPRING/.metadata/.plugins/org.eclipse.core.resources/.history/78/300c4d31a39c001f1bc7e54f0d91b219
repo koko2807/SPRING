@@ -1,0 +1,27 @@
+package com.aloha.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.aloha.spring.dto.Person;
+
+@Controller
+public class ModelController {
+	
+	/**
+	 * 요청 경로 : /model/person
+	 * @param model
+	 * @return
+	 * * 컨트롤러 메소드에서 매개변수에 객체를 지정하면,
+	 * 	 해당 객체를 스프링 자동으로 생성해서 주입해준다.
+	 */
+	@RequestMapping("/model/person")
+	public String person(Model model, Person person) {
+		Person person = new Person();
+		person.setName("김조은");
+		person.setAge(20);
+		
+		return "model/person";		// view: model/person.jsp
+	}
+}

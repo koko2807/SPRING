@@ -1,0 +1,46 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-Security6Application<security6>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.aloha.security6.Security6Application",
+      "projectName": "security6",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-ThymeleafSecurityApplication<thymeleaf-security>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.aloha.thymeleaf_security.ThymeleafSecurityApplication",
+      "projectName": "thymeleaf-security",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55585 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=thymeleaf-security"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-SecurityMethodApplication<security-method>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.aloha.security_method.SecurityMethodApplication",
+      "projectName": "security-method",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env",
+      "vmArgs": " -Dcom.sun.management.jmxremote -Dcom.sun.management.jmxremote.port=55561 -Dcom.sun.management.jmxremote.authenticate=false -Dcom.sun.management.jmxremote.ssl=false -Dspring.jmx.enabled=true -Djava.rmi.server.hostname=localhost -Dspring.application.admin.enabled=true -Dspring.boot.project.name=security-method"
+    },
+    {
+      "type": "java",
+      "name": "Spring Boot-Security5Application<security5>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.aloha.security5.Security5Application",
+      "projectName": "security5",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

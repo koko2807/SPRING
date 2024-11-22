@@ -1,0 +1,22 @@
+package com.aloha.spring.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.aloha.spring.dto.Person;
+
+@Controller
+public class ModelController {
+	
+	/**
+	 * 요청 경로 : /model/person
+	 * @param model
+	 * @return
+	 */
+	@RequestMapping("/model/person")
+	public String person(Model model, Person person) {
+		
+		return "model/person";		// view: model/person.jsp
+	}
+}

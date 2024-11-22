@@ -1,0 +1,8 @@
+package com.aloha.spring.config;
+
+import org.springframework.context.annotation.Configuration;
+
+@Configuration		// 스프링 빈을 등록하는 설정 클래스로 지정
+public class Config {
+
+}

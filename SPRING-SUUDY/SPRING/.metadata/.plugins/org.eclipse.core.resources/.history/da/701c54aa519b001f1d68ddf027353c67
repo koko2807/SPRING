@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Root Context: defines shared resources visible to all other web components -->
+	
+	<!-- BoardDAO 빈을 등록 -->
+	<!-- 
+		<bean id="빈 이름" class="패키지명.클래스명"></bean>
+		* 패키지명.클래스명 의 클래스를 "빈 이름"으로 빈 등록
+		* IoC 컨테이너에 해당 클래스를 빈으로 지정
+		* 의존성 자동 주입 등에 사용 가능
+	 -->
+	<bean id="boardDAO" class="com.aloha.spring.dao.BoardDAO"></bean>
+	
+	<!-- BoardServiceImpl 빈을 등록 -->
+	<bean id="boardServiceImpl" class="com.aloha.spring.service.BoardServiceImpl">
+		<!-- <constructor-arg> -->
+		<constructor-arg ref="boardDAO"></constructor-arg>
+<!-- 		<constructor-arg name="test" value="10"></constructor-arg> -->
+	</bean>
+	
+</beans>

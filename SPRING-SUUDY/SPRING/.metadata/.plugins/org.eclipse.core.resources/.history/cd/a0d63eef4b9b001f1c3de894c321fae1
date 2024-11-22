@@ -1,0 +1,12 @@
+package com.aloha.spring.service;
+
+public class BoardServiceImpl implements BoardService {
+
+	private BoardDAO boardDAO = new BoardDAO();
+	
+	@Override
+	public List<Board> list() {
+		
+		return null;
+	}
+}

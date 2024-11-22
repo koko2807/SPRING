@@ -1,0 +1,14 @@
+package com.aloha.spring.service;
+
+import org.springframework.stereotype.Service;
+
+public class CServiceImpl implements MyService {
+
+	@Service // 서비스 빈으로 등록
+	 // 빈이름 지정하지 않으면, "AServiceImpl" 빈이름으로 지정
+	
+	@Override
+	public void test() {
+		System.out.println("CServiceImpl...");
+}
+}

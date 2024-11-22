@@ -1,0 +1,4 @@
+GitRepositoriesView.GitDirectories=C\:\\MSA9\\SPRING\\Servers\\.git;C\:\\MSA9\\SPRING\\sample\\.git;C\:\\MSA9\\SPRING\\spring-aop\\.git;
+GitRepositoriesView.GitDirectories.relative=Servers\\.git;sample\\.git;spring-aop\\.git;
+core_autoIgnoreDerivedResources=false
+eclipse.preferences.version=1

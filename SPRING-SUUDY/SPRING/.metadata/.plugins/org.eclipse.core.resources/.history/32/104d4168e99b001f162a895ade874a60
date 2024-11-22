@@ -1,0 +1,26 @@
+package com.aloha.spring.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.aloha.spring.dao.BoardDAO;
+
+public class BoardServiceImpl implements BoardService {
+
+	private final BoardDAO boardDAO;
+	
+	@Autowired		// 의존성 자동 주입
+	public BoardServiceImpl(BoardDAO boardDAO) {
+		this.boardDAO = boardDAO;
+	}
+	
+	@Override
+	public void test() {
+		
+	}
+
+	@Override
+	public void setDAO(BoardDAO boardDAO) {
+	}
+
+	
+}

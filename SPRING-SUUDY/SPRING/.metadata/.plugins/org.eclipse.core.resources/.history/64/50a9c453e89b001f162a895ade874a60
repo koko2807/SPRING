@@ -1,0 +1,17 @@
+package com.aloha.spring.dto;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class Reply {
+
+	private String title;
+	private String writer;
+	private String content;
+	
+	public Reply() {
+		this.title = "제목없음";
+		this.writer = "제목없음";
+		this.content = "제목없음";
+	}
+}
